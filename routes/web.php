@@ -79,14 +79,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('/jadwal/tambah', [JadwalController::class, 'tambah']);
         Route::put('/jadwal/{id}', [JadwalController::class, 'edit']);
         Route::delete('/jadwal/{id}', [JadwalController::class, 'hapus']);
+        Route::get('/jadwal/perkelas{kelas_id?}', [JadwalController::class, 'showJadwalPerKelas'])->name('jadwal.perkelas');
 
         Route::get('/tahun', [TahunController::class, 'index']);
         Route::post('/tahun/tambah', [TahunController::class, 'tambah']);
         Route::put('/tahun/{id}', [TahunController::class, 'edit']);
         Route::delete('/tahun/{id}', [TahunController::class, 'hapus']);
         Route::put('/tahun/aktifkan/{id}', [TahunController::class, 'setAktif']);
-
-
 
         Route::get('/lokasi', [LokasiController::class, 'index'])->name('lokasi.index');
         Route::post('/lokasi', [LokasiController::class, 'simpan'])->name('lokasi.simpan');
